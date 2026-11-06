@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Minha Pessoa Importante 🌹</title>
+    <style>
+        /* Fundo rosa com padrão de corações */
+        body {
+            background-color: #ffb6c1;
+            background-image: radial-gradient(#ff69b4 20%, transparent 20%),
+                              radial-gradient(#ff69b4 20%, transparent 20%);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #d11a5b;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .subtitulo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e91e63;
+            margin-top: 5px;
+        }
+
+        .importante {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        /* Botão Continuar Verde */
+        .btn-continuar {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0px 5px 15px rgba(46, 204, 113, 0.4);
+            transition: 0.3s;
+        }
+
+        .btn-continuar:hover {
+            background-color: #27ae60;
+            transform: scale(1.05);
+        }
+
+        /* Caixa do Pedido Escondida Inicialmente */
+        .caixa-pedido {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            border: 3px dashed #ff69b4;
+            border-radius: 15px;
+            background: #fff0f5;
+            animation: surgir 0.5s ease-in-out forwards;
+        }
+
+        .declaracao {
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .pergunta {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d11a5b;
+            margin-bottom: 20px;
+        }
+
+        /* Botões de Escolha */
+        .botoes-opcao {
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+        }
+
+        .btn-escolha {
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+            flex: 1;
+        }
+
+        .btn-aceito {
+            background-color: #ff4757;
+            color: white;
+        }
+
+        .btn-nao {
+            background-color: #747d8c;
+            color: white;
+        }
+
+        /* Telas de Resultado */
+        .resultado {
+            display: none;
+            animation: surgir 0.5s ease-in-out forwards;
+        }
+
+        .obs {
+            font-size: 12px;
+            color: #777;
+            margin-top: 20px;
+            display: block;
+        }
+
+        @keyframes surgir {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="conteudo-principal">
+        <!-- Topo personalizado -->
+        <h1>BEM VINDO, ALEXIA!</h1>
+        <div class="subtitulo">🌹 Bem Vindo, Aleixa 🌹</div>
+        <p class="importante">Você é uma pessoa muito importante! 😊♥️</p>
+
+        <!-- Botão Continuar Inicial -->
+        <button class="btn-continuar" id="btnContinuar" onclick="mostrarPedido()">Continuar</button>
+
+        <!-- Caixa de Namorar Comigo (Aparece após o Continuar) -->
+        <div class="caixa-pedido" id="caixaPedido">
+            <p class="declaracao">
+                Você foi uma pessoa que quando conheci senti algo diferente em mim! Algo que nunca senti antes como posso falar "Amor a primeira vista!" Desde que comecei a conversar com você e conversar comecei a gostar de você de verdade e não queria que continuasse só na amizade mas também algo a mas ficar juntos até o fim! E aprendi muito com você coisas que eu nem sabia mas você me ensinou e também me ajudou a ser uma pessoa melhor antes alguém de coração vazio mas agora de coração cheio! Eu te amo Alexa
+            </p>
+            
+            <div class="pergunta">Você aceita namorar comigo?</div>
+            
+            <div class="botoes-opcao">
+                <button class="btn-escolha btn-aceito" onclick="responderSim()">Aceito 🫶💌</button>
+                <button class="btn-escolha btn-nao" onclick="responderNao()">Não 😔😥</button>
+            </div>
+        </div>
+
+        <!-- Tela de Sucesso (Sim) -->
+        <div class="resultado" id="telaSim">
+            <h1 style="font-size: 32px; color: #ff4757;">Eu Te Amooooooooo!!!!!!! ♥️🫶♥️🫶♥️🫶♥️♥️♥️♥️</h1>
+            <p style="font-size: 18px; font-weight: bold; color: #2ecc71;">Redirecionando para o WhatsApp para me dar a resposta... 🚀</p>
+            <span class="obs">Obs: Só pode falar no WhatsApp kkkk não consigo ver as escolha tive que fazer rápido</span>
+        </div>
+
+        <!-- Tela de Recusa (Não) -->
+        <div class="resultado" id="telaNao">
+            <h1 style="color: #747d8c;">Ah, beleza nós pode continuar na amizade então 💔😥😭</h1>
+        </div>
+    </div>
+
+    <script>
+        // Substitua os números abaixo pelo SEU número de WhatsApp (com DDD e sem espaços/traços)
+        // Exemplo: 5581999999999 (55 = Brasil)
+        const SEU_WHATSAPP = "5500000000000"; 
+
+        function mostrarPedido() {
+            document.getElementById('btnContinuar').style.display = 'none';
+            document.getElementById('caixaPedido').style.display = 'block';
+        }
+
+        function responderSim() {
+            // Esconde o pedido e mostra a tela de amor
+            document.getElementById('caixaPedido').style.display = 'none';
+            document.getElementById('telaSim').style.display = 'block';
+
+            // Cria o link do WhatsApp com a mensagem pronta
+            const mensagem = encodeURIComponent("Eu aceito namorar com você! ❤️🫶💌");
+            
+            // Aguarda 3 segundos para ela ler a tela e abre o WhatsApp
+            setTimeout(() => {
+                window.location.href = `https://wa.me{81994937418}?text=${mensagem}`;
+            }, 3000);
+        }
+
+        function responderNao() {
+            document.getElementById('caixaPedido').style.display = 'none';
+            document.getElementById('telaNao').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
