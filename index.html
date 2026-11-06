@@ -67,7 +67,7 @@
             transform: scale(1.05);
         }
 
-        /* Caixa do Pedido Escondida Inicialmente */
+        /* Caixa do Pedido */
         .caixa-pedido {
             display: none;
             margin-top: 30px;
@@ -143,18 +143,18 @@
 <body>
 
     <div class="container" id="conteudo-principal">
-        <!-- Topo personalizado -->
+        <!-- Topo personalizado com correções -->
         <h1>BEM VINDO, ALEXIA!</h1>
-        <div class="subtitulo">🌹 Bem Vindo, Aleixa 🌹</div>
+        <div class="subtitulo">🌹 Bem Vindo, Alexia 🌹</div>
         <p class="importante">Você é uma pessoa muito importante! 😊♥️</p>
 
         <!-- Botão Continuar Inicial -->
         <button class="btn-continuar" id="btnContinuar" onclick="mostrarPedido()">Continuar</button>
 
-        <!-- Caixa de Namorar Comigo (Aparece após o Continuar) -->
+        <!-- Caixa de Namorar Comigo -->
         <div class="caixa-pedido" id="caixaPedido">
             <p class="declaracao">
-                Você foi uma pessoa que quando conheci senti algo diferente em mim! Algo que nunca senti antes como posso falar "Amor a primeira vista!" Desde que comecei a conversar com você e conversar comecei a gostar de você de verdade e não queria que continuasse só na amizade mas também algo a mas ficar juntos até o fim! E aprendi muito com você coisas que eu nem sabia mas você me ensinou e também me ajudou a ser uma pessoa melhor antes alguém de coração vazio mas agora de coração cheio! Eu te amo Alexa
+                Você foi uma pessoa que quando conheci senti algo diferente em mim! Algo que nunca senti antes, como posso falar: "Amor à primeira vista!" Desde que comecei a conversar com você, comecei a gostar de você de verdade e não queria que continuasse só na amizade, mas também algo a mais, ficarmos juntos até o fim! E aprendi muito com você, coisas que eu nem sabia, mas você me ensinou e também me ajudou a ser uma pessoa melhor. Antes alguém de coração vazio, mas agora de coração cheio! Eu te amo, Alexia.
             </p>
             
             <div class="pergunta">Você aceita namorar comigo?</div>
@@ -168,20 +168,19 @@
         <!-- Tela de Sucesso (Sim) -->
         <div class="resultado" id="telaSim">
             <h1 style="font-size: 32px; color: #ff4757;">Eu Te Amooooooooo!!!!!!! ♥️🫶♥️🫶♥️🫶♥️♥️♥️♥️</h1>
-            <p style="font-size: 18px; font-weight: bold; color: #2ecc71;">Redirecionando para o WhatsApp para me dar a resposta... 🚀</p>
-            <span class="obs">Obs: Só pode falar no WhatsApp kkkk não consigo ver as escolha tive que fazer rápido</span>
+            <p style="font-size: 18px; font-weight: bold; color: #2ecc71;">Abrindo o WhatsApp para me dar a resposta... 🚀</p>
+            <span class="obs">Obs: Só pode falar no WhatsApp kkkk não consigo ver as escolhas, tive que fazer rápido</span>
         </div>
 
         <!-- Tela de Recusa (Não) -->
         <div class="resultado" id="telaNao">
-            <h1 style="color: #747d8c;">Ah, beleza nós pode continuar na amizade então 💔😥😭</h1>
+            <h1 style="color: #747d8c; font-size: 22px;">Ah, beleza... nós pode continuar na amizade então 💔😥😭</h1>
         </div>
     </div>
 
     <script>
-        // Substitua os números abaixo pelo SEU número de WhatsApp (com DDD e sem espaços/traços)
-        // Exemplo: 5581999999999 (55 = Brasil)
-        const SEU_WHATSAPP = "5500000000000"; 
+        // Seu número configurado no padrão correto do WhatsApp (55 + DDD + Número)
+        const SEU_WHATSAPP = "5581994937418"; 
 
         function mostrarPedido() {
             document.getElementById('btnContinuar').style.display = 'none';
@@ -189,17 +188,16 @@
         }
 
         function responderSim() {
-            // Esconde o pedido e mostra a tela de amor
             document.getElementById('caixaPedido').style.display = 'none';
             document.getElementById('telaSim').style.display = 'block';
 
-            // Cria o link do WhatsApp com a mensagem pronta
-            const mensagem = encodeURIComponent("Eu aceito namorar com você! ❤️🫶💌");
+            // Mensagem codificada para o link funcionar sem quebrar
+            const mensagem = encodeURIComponent("Eu aceito namorar com você! ❤️🫶 de verdade! 🥰");
             
-            // Aguarda 3 segundos para ela ler a tela e abre o WhatsApp
+            // Aguarda 2 segundos para ela ler o "Eu Te Amoooooo" e abre o link corrigido do WhatsApp
             setTimeout(() => {
-                window.location.href = `https://wa.me{81994937418}?text=${mensagem}`;
-            }, 3000);
+                window.location.href = "https://wa.me/" + SEU_WHATSAPP + "?text=" + mensagem;
+            }, 2000);
         }
 
         function responderNao() {
